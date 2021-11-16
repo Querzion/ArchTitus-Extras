@@ -1,0 +1,5 @@
+### Copy & Paste - make folder, then copy the files.
+
+sudo mkdir /usr/share/wallpapers/querzion && sudo cp -r ~/ArchTitus/Extras/Wallpapers/querzion/*.png /usr/share/wallpapers/querzion/
+
+sudo mkdir /usr/share/wallpapers/dwt1 && sudo cp -r ~/ArchTitus/Extras/Wallpapers/dwt1/*.jpg /usr/share/wallpapers/dwt1/
