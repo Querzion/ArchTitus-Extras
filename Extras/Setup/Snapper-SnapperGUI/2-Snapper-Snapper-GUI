@@ -1,0 +1,53 @@
+### INSTALL & CONFIGURE SNAPPER/SNAPPER GUI (https://youtu.be/sm_fuBeaOqE)
+sudo pacman -S grub-btrfs git
+grub-mkconfig -o /boot/grub/grub.cfg
+sudo su
+
+umount /.snapshots/
+rm -rf /.snapshots/
+
+# Create a root configuration
+snapper -c root create-config /
+nano /etc/snapper/configs/root
+
+# Change the config file
+ALLOW_USERS="querzion"
+
+# Change the limits for the timeline cleanup
+TIMELINE_MIN_AGE="1800"
+TIMELINE_LIMIT_HOURLY="5"
+TIMELINE_LIMIT_DAILY="8"
+TIMELINE_LIMIT_WEEKLY="10"
+TIMELINE_LIMIT_MONTHLY="7"
+TIMELINE_LIMIT_YEARLY="0"
+# Save & Exit
+
+# Change Permissions for the snapper directory
+chmod a+rx /.snapshots/
+
+# Start services
+systemctl enable snapper-timeline.timer
+systemctl start snapper-timeline.timer
+
+systemctl enable snapper-cleanup.timer
+systemctl start snapper-cleanup.timer
+
+
+# Start the Grub-btrfs service
+systemctl start grub-btrfs.path
+systemctl enable grub-btrfs.path
+
+snapper -c root create -c timeline --description AfterInstall
+snapper -c root list
+
+reboot
+
+snapper -c root create -c timeline --description BeforeGUI
+
+git clone https://aur.archlinux.org/snapper-gui-git.git
+cd snapper-gui-git/
+makepkg -si PKGBUILD
+
+reboot
+
+### MAKE SNAPSHOT WRITABLE (https://youtu.be/sm_fuBeaOqE?t=2282)

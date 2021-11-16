@@ -1,0 +1,41 @@
+ ### PROTONUP - Proton-GE for Steam (https://youtu.be/S7UP8MF9ne4) (https://github.com/AUNaseef/protonup)
+sudo pacman -S steam lutris
+sudo pacman -S git python3 python-pip
+steam   # Let it load and download and then ctrl+c to cancel the operation.
+
+sudo pip3 install protonup
+
+# OR
+
+git clone https://github.com/AUNaseef/protonup && cd protonup
+sudo python3 setup.py install
+
+# NEXT PART
+
+protonup -d "~/.steam/root/compatibilitytools.d/"
+protonup
+
+start steam and activate and choose the GE version installed, also change the vulkan pre-cache
+
+### PROTONUP COMMANDS
+protonup --releases     # Lists availible Proton-GE versions
+protonup -t "version"   # Install a specific Proton-GE version
+# By default the downloads are stored in a temporary folder. Change it with -o "custom/download/directory"
+Ex. protonup -o ~/Downloads
+protonup -l             # Lists installed Proton-GE versions
+protonup -r "version"   # Removes an installed Proton-GE version
+# Use --download to download Proton-GE to the current working directory without installing it, you can override destination with -o
+protonup --download
+# Use -y toggle to carry out actions without any logging or interaction
+protonup --download -o ~/Downloads -y
+
+### GAME MODE
+https://ostechnix.com/gamemode-a-tool-to-improve-gaming-performance-on-linux/
+https://www.youtube.com/watch?v=t-ZQ9LRdXSk
+
+git clone https://github.com/FeralInteractive/gamemode
+cd gamemode
+./bootstrap.sh
+
+# SEE IF GAMEMODE IS ACTIVE
+gamemoded -s

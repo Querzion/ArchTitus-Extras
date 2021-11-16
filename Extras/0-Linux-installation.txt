@@ -1,0 +1,172 @@
+### _____________________________________________________________________________
+###
+###                     INSTALL EVERY TIME - PACMAN
+### _____________________________________________________________________________
+
+sudo systemctl enable ufw.service
+sudo systemctl start ufw.service
+sudo systemctl status ufw.service
+
+###     STARSHIP - (https://starship.rs/guide/)
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+sudo nano .bashrc # add >>  eval "$(starship init bash)"
+
+###     LS = LS -AL
+sudo nano .bashrc   ### change >>   alias ls='exa -al --color=always --group-directories-first'
+
+
+### _____________________________________________________________________________
+###
+###     These installs are of no use after a ArchTitus Install.
+### _____________________________________________________________________________
+
+sudo pacman -S yakuake terminator alacritty neofetch ncdu exa htop git discord sndio swig gimp inkscape ffmpeg kdenlive notepadqq libreoffice ktorrent grub-customizer
+
+### _____________________________________________________________________________
+###
+###                         INSTALL - AUR PACKAGES
+### _____________________________________________________________________________
+
+mkdir /home/querzion/Installs/
+cd /home/querzion/Installs/
+
+#   TTF-MS-FONTS
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/ttf-ms-fonts.git
+cd ttf-ms-fonts/
+makepkg -si PKGBUILD
+
+#   BTOP
+cd /home/querzion/Installs/
+git clone https://github.com/aristocratos/btop
+cd btop/
+./install.sh or sudo make install
+
+#   MAILSPRING
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/mailspring.git
+cd mailspring/
+makepkg -si PKGBUILD
+
+#   VLC-LUAJIT
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/vlc-luajit.git
+cd vlc-luajit/
+makepkg -si PKGBUILD
+
+#   VLC-BITTORRENT
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/vlc-bittorent.git
+cd vlc-bittorrent/
+makepkg -si PKGBUILD
+
+#   CEF-MINIMAL
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/cef-minimal.git
+cd cef-minimal/
+makepkg -si PKGBUILD
+
+#   OBS STUDIO BROWSER
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/obs-studio-browser.git
+cd obs-studio-browser/
+makepkg -si PKGBUILD
+
+#   FLUENT READER - RSS FEED READER
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/fluent-reader.git
+cd fluent-reader/
+makepkg -si PKGBUILD
+
+# SNAP & SNAP STORE | WONDERWALL (WALLPAPERS)
+cd /home/querzion/Installs/
+git clone https://aur.archlinux.org/snapd.git
+cd snapd
+makepkg -si
+
+sudo systemctl enable --now snapd.socket
+
+sudo ln -s /var/lib/snapd/snap /snap
+
+sudo snap install snap-store
+
+### _____________________________________________________________________________
+###
+###                                  WALLPAPERS
+### _____________________________________________________________________________
+
+git clone https://gitlab.com/dwt1/wallpapers.git
+sudo mkdir /usr/share/wallpapers/querzion
+sudo cp /home/querzion/wallpapers/*.jpg /usr/share/wallpapers/querzion/
+
+sudo snap install wonderwall
+
+
+### _____________________________________________________________________________
+###
+###                      DO NOT NEED TO INSTALL THIS!!
+### _____________________________________________________________________________
+
+###                      EXTRA APPLICATIONS & SETTINGS
+
+### OBS Linux Browser (https://github.com/bazukas/obs-linuxbrowser/releases)
+# Copy to /home/querzion/.config/obs-studio/plugins/
+# be sure to create the folder plugins.
+# Start OBS Studio
+
+### VLC & VLC-PLUGIN-BITTORRENT
+(DEBIAN/UBUNTU) sudo apt install vlc vlc-plugin-bittorrent
+
+
+
+#THEME
+(DEBIAN/UBUNTU) sudo apt-get install dconf-cli
+monokai for terminal
+monokai for gedit/xed
+monokai for system color
+monokai for firefox
+
+
+
+### _____________________________________________________________________________
+###
+###                         TILING FOR KDE PLASMA
+### _____________________________________________________________________________
+
+kwin tiling
+
+### _____________________________________________________________________________
+###     ARCH BASED ONLY
+
+sudo pacman-mirrors --fasttrack
+
+
+### _____________________________________________________________________________
+###
+###                          ARCHTITUS - ARCH LINUX
+### _____________________________________________________________________________
+
+pacman -Sy git
+git clone https://github.com/ChrisTitusTech/ArchTitus
+cd ArchTitus
+./archtitus.sh
+
+
+### _____________________________________________________________________________
+Enable parallel downloading in Pacman in Arch Linux
+Parallel download support in Pacman package manager can be enabled by following the steps given below:
+
+1 Open /etc/pacman.conf file in your preferred editor:
+
+$ sudo nano /etc/pacman.conf
+2. Find the following line and uncomment it:
+
+# ParallelDownloads = 5 to
+ParallelDownloads = 10
+### _____________________________________________________________________________
+
+African Scammer| ddos that asshole.
+https://www.ps3cfw.com/iplog.php?logdata=yes&tkey=20228229
+
+# YAKUAKE
+https://coderwall.com/p/kq9ghg/yakuake-scripting
